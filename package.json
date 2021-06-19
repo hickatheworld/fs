@@ -3,6 +3,7 @@
 	"version": "0.1.0",
 	"main": "build/index.js",
 	"devDependencies": {
+		"@types/chai": "^4.2.18",
 		"@types/mocha": "^8.2.2",
 		"@types/node": "^15.12.3",
 		"@typescript-eslint/eslint-plugin": "^4.27.0",
@@ -18,13 +19,13 @@
 		"test": "npm run build & mocha"
 	},
 	"mocha": {
-		"requires": ["./test/init.js"]
+		"requires": [
+			"./test/init.js"
+		]
 	},
 	"keywords": [],
 	"author": "hickatheworld",
 	"license": "MIT",
 	"description": "My node fs wrapper for more convenient use.",
-	"dependencies": {
-		"@types/chai": "^4.2.18"
-	}
+	"dependencies": {}
 }
