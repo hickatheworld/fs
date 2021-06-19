@@ -6,10 +6,15 @@
 		"@types/node": "^15.12.3",
 		"@typescript-eslint/eslint-plugin": "^4.27.0",
 		"@typescript-eslint/parser": "^4.27.0",
+		"chai": "^4.3.4",
 		"eslint": "^7.28.0",
+		"mocha": "^9.0.1",
+		"ts-node": "^10.0.0",
 		"typescript": "^4.3.4"
 	},
-	"scripts": {},
+	"scripts": {
+		"test": "mocha -r ts-node/register tests/**/*.test.ts"
+	},
 	"keywords": [],
 	"author": "hickatheworld",
 	"license": "MIT",
