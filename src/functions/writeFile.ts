@@ -1,4 +1,4 @@
-import { PathLike, writeFile as wf, appendFile } from 'fs';
+import { PathLike, writeFile as wf, appendFile, NoParamCallback } from 'fs';
 
 /**
  * Writes into a file
@@ -8,14 +8,14 @@ import { PathLike, writeFile as wf, appendFile } from 'fs';
  */
 export default async function writeFile(path: PathLike, content: string, append = false): Promise<void> {
 	return new Promise((resolve, reject) => {
-		const callback = err => {
+		const callback = (err: Error) => {
 			if (err)
 				reject(err);
 			resolve();
 		};
 		if (append)
-			appendFile(path, content, callback);
+			appendFile(path, content, callback as NoParamCallback);
 		else
-			wf(path, content, callback);
+			wf(path, content, callback as NoParamCallback);
 	});
 }
