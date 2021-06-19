@@ -1,21 +1,24 @@
-import { mkdirSync, rmdirSync, writeFileSync } from 'fs';
-import os from 'os';
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { mkdirSync, rmdirSync, writeFileSync } = require('fs');
+const os = require('os');
+
+const SAMPLE_TEXT = 'line1\nline2 \n\nline3	';
+module.exports.SAMPLE_TEXT = SAMPLE_TEXT;
 
 /** Creates required temp files for tests */
-export default function init(): void {
+function init() {
 	process.chdir(os.tmpdir());
 	try {
 		mkdirSync('@hickatheworld');
 		mkdirSync('@hickatheworld/fs');
+		mkdirSync('@hickatheworld/fs/test_dir');
 	} catch (err) {
 		// Occurs if the directories already exist
 		// Probably because last test didn't end correctly
 	}
 	process.chdir('@hickatheworld/fs');
 
-	writeFileSync('test_file.txt', 'line1\nline2 \n\nline3	');
-	mkdirSync('test_dir');
-	writeFileSync('test_dir/test_file2.txt', 'line1\nline2 \n\nline3	');
+	writeFileSync('test_file.txt', SAMPLE_TEXT);
 
 	process.on('exit', () => {
 		process.chdir('../..');
@@ -23,6 +26,4 @@ export default function init(): void {
 	});
 	process.on('SIGINT', () => process.exit());
 }
-
 init();
-setTimeout(() => null, 10000);
