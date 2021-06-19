@@ -15,5 +15,3 @@ export default function readJSON(path: PathLike): Promise<Record<string, unknown
 		});
 	});
 }
-
-readJSON('test.txt').then(console.log);
