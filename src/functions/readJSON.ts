@@ -1,7 +1,7 @@
 import { PathLike, readFile } from 'fs';
 
 /**
- * Reads a file and parses its content to a JSON 
+ * Reads a file and parses its content to a JSON object
  * @param path Path to the file to read
  * @returns The file content parsed to a JSON object
  */
