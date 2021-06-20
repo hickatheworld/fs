@@ -4,6 +4,8 @@ const os = require('os');
 
 const SAMPLE_TEXT = 'line1\nline2 \n\nline3	';
 module.exports.SAMPLE_TEXT = SAMPLE_TEXT;
+const SAMPLE_OBJECT = { a: 12, b: 'test', c: [1] };
+module.exports.SAMPLE_OBJECT = SAMPLE_OBJECT;
 
 /** Creates required temp files for tests */
 function init() {
@@ -19,6 +21,7 @@ function init() {
 	process.chdir('@hickatheworld/fs');
 
 	writeFileSync('test_file.txt', SAMPLE_TEXT);
+	writeFileSync('test_json.txt', JSON.stringify(SAMPLE_OBJECT));
 
 	process.on('exit', () => {
 		process.chdir('../..');
