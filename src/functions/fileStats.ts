@@ -18,5 +18,3 @@ export default async function fileStats(path: PathLike): Promise<FileStats | und
 	stats.spaces = file.join('').match(/ /g)?.length || 0;
 	return stats;
 }
-
-fileStats('test.txt').then(console.log);
