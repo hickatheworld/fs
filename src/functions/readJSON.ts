@@ -10,7 +10,7 @@ export default function readJSON(path: PathLike): Promise<Record<string, unknown
 		readFile(path, { encoding: 'utf-8' }, (err, data) => {
 			if (err) {
 				if (err.code === 'ENOENT')
-					return undefined;
+					return resolve(undefined);
 				return reject(err);
 			}
 			const parsed = JSON.parse(data);
